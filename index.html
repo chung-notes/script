@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>chung-notes/office-script</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      color: #333;
+      font-size: clamp(14px, 1.5vw, 18px);
+    }
+
+    .menu-button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: clamp(10px, 1.5vw, 14px) clamp(16px, 3vw, 24px);
+      font-size: clamp(14px, 1.2vw, 18px);
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-button:hover {
+      background-color: #2980b9;
+    }
+
+    .menu {
+      display: none;
+      background-color: #ecf0f1;
+      padding: 1rem;
+      margin: 0 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease-in-out;
+      font-size: clamp(14px, 1.2vw, 16px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content {
+      padding: 1rem;
+      font-size: clamp(14px, 1.4vw, 18px);
+    }
+
+
+    .back-to-top {
+      position: fixed;
+      bottom: 40px;
+      right: 30px;
+      background-color: #3498db;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 18px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .back-to-top:hover {
+      background-color: #555;
+    }
+
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      border-left: 5px solid #3498db;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      font-size: clamp(13px, 1.2vw, 16px);
+    }
+
+
+    @media only screen and (max-width: 800px) {
+      .main {
+        width: 80%;
+        padding: 0;
+      }
+      .right {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 500px) {
+      .menu, .main, .right {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Anchor at the top -->
+  <a id="top"></a><button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+  <div class="menu" id="menu">
+    <ul>
+      <li><a href="#1">Getting started</a></li>
+      <li><a href="#2">Working with script files</a></li>
+      <li><a href="#3">Writing Office Script</a></li>
+      <li><a href="#4">Running Scripts</a></li>
+      <li><a href="#5">Ranges</a></li>
+      <li><a href="#6">Variables</a></li>
+      <li><a href="#7">Conditional Statements</a></li>
+      <li><a href="#8">Working with data</a></li>
+      <li><a href="#9">Function and parameters</a></li>
+      <li><a href="#10">Conditional Loops</a></li>
+      <li><a href="#11">For Loops</a></li>
+      <li><a href="#12">Arrays</a></li>
+      <li><a href="#13">Collections</a></li>
+      <li><a href="#14">Crib Sheet</a></li>
+    </ul>
+  </div>
+  
+  <!-- Back to Top Button -->
+  <a href="#top" class="back-to-top">↑ Top</a>
+
+
+  <div class="content">
+ 
+<!-- ============================== -->
+<pre id = "1">
+Getting Started
+
+1.1 Introduction to Office Scripts
+  What are Office Scripts?
+  What do I need to use Office Scripts?
+  Can’t I already Automate Excel?
+  Why use Office Scripts and not VBA?
+  What are the Limitations?
+
+1.2 Preparing to Write Office Scripts
+  The Automate Ribbon Tab
+  The Code Editor
+
+1.3 Writing Your First Script
+  Creating a New Script
+  The Basic Structure of a Script
+  Adding a Comment
+  Writing Basic Instructions
+  Adding More Instructions
+  Running the Script
+1.4 Code Editor Settings
+  Changing Code Editor Settings
+  A Note on Visual Studio Code
+
+</pre>
+<!-- ============================== -->
+Working with script files
+
+2.1 Office Script Files
+  Viewing Existing Script Files
+  The More Options Menu
+  Creating a New Script File
+  Opening an Existing Script
+  Renaming an Open Script
+  Deleting a Script
+
+2.2 Saving Script Files
+  Where Office Scripts are Saved
+  Saving an Open Script
+  The Save As Option
+2.3 Sharing Scripts
+  Sharing a Script
+  Stopping Sharing a Script
+<!-- ============================== -->
+<pre id="2">
+Writing Office Script
+
+3.1 TypeScript Language Basics
+  TypeScript Language Elements
+
+3.2 Tools for Writing Code
+  IntelliSense
+  Showing More Information
+  Showing Help Popups
+  The Context Menu
+  The Command Palette
+
+3.3 Writing Neat Code
+  Writing Comments
+  Commenting Out Code
+  Writing Long Instructions
+  White Space and Indenting
+  Auto Formatting a Script
+  Using Semicolons
+
+3.4 Dealing with Errors
+  Spotting Compile-time Errors
+  Viewing Error Information
+  Cycling Through Errors
+  Fixing Errors Automatically
+
+3.5 Getting Help
+  Microsoft Documentation
+  Other Documentation
+  Recording Scripts
+  Searching for Help
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="3">
+Running Script
+
+4.1 Introduction
+  Running a Script
+  Stopping a Script that is Running
+
+4.2 When Things Go Wrong
+  Spotting Runtime Errors
+
+4.3 Using Buttons
+  Creating a Button
+  Using a Button to Run a Script
+  Editing a Button
+  Removing Buttons
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="4">
+Ranges
+
+5.1 Referring to Range Objects
+  Referring to the Active Cell
+  Referring to a Cell by Reference
+  Referring to Multiple Cells
+  Using Named Ranges
+  Using Row and Column Numbers
+  Multiple Cells using Indexes
+
+5.2 The RangeAreas Object
+  Referring to Multiple Separate Ranges
+  RangeAreas vs. Range Objects
+
+5.3 Getting and Setting Cell Values
+  Changing the Value of a Cell
+  Changing Values without Selecting Cells
+  Reading the Value of a Cell
+  Cell Data Types
+
+5.4 Cell Formulas
+  Creating Formulas using Cell References
+  Creating Formulas using R1C1 Notation
+
+5.5 Formatting Cells
+  Fill Formatting Properties
+  Font Formatting Properties
+  Formatting Cell Borders
+  Changing Number Formats
+  Using Cell Styles
+
+5.6 Moving Between Worksheets
+  Activating a Worksheet
+  Modifying Cells without Switching Sheets
+
+5.7 Relative Cell References
+  Finding the Last Cell in a List
+  Selecting to the End of a Filled Range
+  Referring to a Region of Cells
+  Offsetting Rows and Columns
+  Resizing a Range
+  Entire Rows and Columns
+  Getting the Used Range
+  Finding Special Cells
+
+5.8 Inserting, Deleting and Clearing Cells
+  Inserting Cells
+  Deleting Cells
+  Clearing Cells
+
+5.9 Moving and Copying Cells
+  Moving Cells
+  Copying Cells
+  Options for Copying Cells
+
+5.10 Finding Ranges
+  Finding a Single Cell
+  Finding Multiple Cells
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="5">
+Conditional Statments
+
+7.1 The If Statement
+  Basic If Statements
+  The Else Clause
+  Else If Clauses
+
+7.2 Writing Logical Tests
+  Comparison Operators
+  Combining Conditions
+  The Not Operator
+
+7.3 Conditions and Objects
+  Testing if an Object Exists
+  Conditional Actions
+
+7.4 Conditions and Cell Values
+  Testing the Type of a Value
+  Testing for Empty Cells
+
+7.5 Other Conditional Statements
+  The Conditional Operator
+  The Switch Statement
+</pre>
+<!-- ============================== -->
+
+
+<!-- ============================== -->
+<pre id="6">
+Working with data
+
+8.1 Working with Numbers
+  Basic Operators for Numbers
+  Order of Operations
+  Number Assignment Operators
+  Formatting Numbers
+  Converting Strings to Numbers
+  The Number Object
+  The Math Object
+  Rounding Numbers
+  Generating Random Numbers
+
+8.2 Working with Strings
+  Concatenating Text
+  String Templates
+  Escaping Characters
+  New Lines
+  Editing Strings
+  Comparing Strings
+  Searching Strings
+  Regular Expressions
+
+8.3 Working with Dates
+  Creating a Date Object
+  Getting and Setting Date Parts
+  Formatting Dates
+  Converting Excel Dates to TypeScript
+  Dates
+  Testing for Date Values
+  A Quirk of TypeScript Dates
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="7">
+Funcitons and parameters
+
+9.1 Functions
+  Why Create Extra Functions?
+  Declaring a Function
+  Calling a Function
+
+9.2 Parameters
+  Declaring Parameters
+  Default Parameter Values
+  Optional Parameters
+
+9.3 Returning Values
+  The Return Statement
+  Specifying the Return Type
+
+9.4 Function Expressions
+  Creating a Function Expression
+  Anonymous Function Expressions
+
+9.5 Arrow Function Expressions
+  Creating an Arrow Function Expression
+  Including Multiple Statements
+</pre>
+<!-- ============================== -->
+
+
+<!-- ============================== -->
+<pre id="8">
+For Loops
+
+11.1 Introduction to For Loops
+  For Loop Syntax
+  A Basic Example
+
+11.2 For Loops and Ranges
+  Getting a Cell by Row and Column Number
+  Offsetting from a Range
+  Looping Over Rows and Columns
+
+11.3 More For Loop Features
+  Continue and Break Statements
+  Optional Loop Statements
+  Multiple Loop Statements
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="9">
+Arrays
+
+12.1 Introduction to Arrays
+  Declaring and Populating an Array
+  Viewing Array Contents
+  Referring to Array Elements
+  Declaring an Empty Array
+
+12.2 Modifying Array Contents
+  Sorting Arrays
+  Adding Items
+  Removing Items
+  Altering Array Values
+
+12.3 Searching Arrays
+  Basic Array Search Methods
+  Searching Arrays with Arrow Functions
+
+12.4 Extracting Values from Arrays
+  Extracting Items to New Arrays
+  Combining Arrays into a New Array
+  Converting an Array to a String
+
+12.5 Looping Over Arrays
+  While Loops
+  For Loops
+  For Of Loops
+  The forEach Method
+
+12.6 Multi-Dimensional Arrays
+  Creating a Multi-Dimensional Array
+  Referring to Elements
+  Looping Over Multi-Dimensional Arrays
+
+12.7 Arrays and Ranges
+  Getting Cell Contents as an Array
+  Writing an Array to a Range
+  Looping Through Range Values
+  RangeAreas and Arrays
+
+12.8 Arrays and Function Parameters
+  The Argument Array
+  Passing an Array to a Function
+  The Rest Parameter
+  Returning an Array
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="10">
+Collections
+
+13.1 Introduction to Collections
+  What are Collections?
+
+13.2 Collections and Objects
+  Referencing Collections
+  Collections as Arrays
+  Referencing Objects in Collections
+  Referencing Objects as Items in Arrays
+
+13.3 Adding and Deleting Objects
+  Adding Items to Collections
+  Deleting Items from a Collection
+
+13.4 Looping Through Collections
+  Deleting Objects in a Loop
+
+13.5 Worksheet Examples
+  Protecting and Unprotecting Worksheets
+  Hiding all but One Worksheet
+  Consolidating Worksheets
+  Dividing a List into New Worksheets
+
+13.6 Chart Examples
+  Changing Chart Types and Formats
+  Creating a Chart on Every Worksheet
+  Looping Over Chart Series
+  Looping Through Data Points
+
+13.7 Table Examples
+  Creating a Table on Each Worksheet
+  Looping Through Tables
+  Table Columns
+  Adding Table Rows
+  14 ERROR HANDLING Page
+
+14.1 What is Error Handling?
+  The Try Catch Statement
+  The Finally Block
+  The Error Object
+
+14.2 Throwing Exceptions
+  The Throw Statement
+
+14.3 Errors in Functions
+  Catching Errors in the Calling Function
+  Throwing Errors in a Called Function
+  Catching Errors in a Called Function
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="11">
+
+Crib Sheet
+
+  Office Scripts Reference
+  Selecting and Activating Things
+  Selecting a Range Relatively
+  Using Variables
+  Conditional Statements
+  Looping
+  Creating Functions
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="12">
+
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="13">
+
+</pre>
+<!-- ============================== -->
+
+<!-- ============================== -->
+<pre id="14">
+
+</pre>
+<!-- ============================== -->
+
+
+  </div>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
